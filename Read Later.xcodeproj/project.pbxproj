@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0315CF8412365AA100699260 /* NSString+URLEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 0315CF8312365AA100699260 /* NSString+URLEncoding.m */; };
 		0323AFB112312BB5007754F1 /* DBPrefsWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0323AFB012312BB5007754F1 /* DBPrefsWindowController.m */; };
 		0323AFB512312C18007754F1 /* PreferencesWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0323AFB412312C18007754F1 /* PreferencesWindowController.m */; };
 		0323AFB712312C51007754F1 /* Preferences.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0323AFB612312C51007754F1 /* Preferences.xib */; };
@@ -76,6 +77,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0315CF8212365AA100699260 /* NSString+URLEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoding.h"; sourceTree = "<group>"; };
+		0315CF8312365AA100699260 /* NSString+URLEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoding.m"; sourceTree = "<group>"; };
 		0323AF5B123128D3007754F1 /* defs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = defs.h; sourceTree = "<group>"; };
 		0323AFAF12312BB5007754F1 /* DBPrefsWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPrefsWindowController.h; sourceTree = "<group>"; };
 		0323AFB012312BB5007754F1 /* DBPrefsWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPrefsWindowController.m; sourceTree = "<group>"; };
@@ -277,6 +280,8 @@
 		29B97315FDCFA39411CA2CEA /* Other Sources */ = {
 			isa = PBXGroup;
 			children = (
+				0315CF8212365AA100699260 /* NSString+URLEncoding.h */,
+				0315CF8312365AA100699260 /* NSString+URLEncoding.m */,
 				03C16A821235745C00140152 /* NSString+Slice.h */,
 				03C16A831235745C00140152 /* NSString+Slice.m */,
 				038DCDC51235201700CE2B2E /* CocoaFOB */,
@@ -424,6 +429,7 @@
 				035C11C91235494700A531DF /* v1_to_v2.xcmappingmodel in Sources */,
 				03C16A811235736E00140152 /* FXFetchSiteTitleOperation.m in Sources */,
 				03C16A841235745C00140152 /* NSString+Slice.m in Sources */,
+				0315CF8412365AA100699260 /* NSString+URLEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

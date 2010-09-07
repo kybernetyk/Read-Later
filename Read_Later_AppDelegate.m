@@ -12,7 +12,7 @@
 #import "FXSyncHelper.h"
 #import "CFobLicVerifier.h"
 #import "FXFetchSiteTitleOperation.h"
-
+#import "NSString+URLEncoding.h"
 
 @implementation Read_Later_AppDelegate
 @synthesize shouldShowWindow;
@@ -40,10 +40,105 @@
 	return [verifier verify];
 }
 
+- (void)handleURLEvent:(NSAppleEventDescriptor*)event withReplyEvent:(NSAppleEventDescriptor*)replyEvent
+{
+	[self setShouldShowWindow: YES];
+	[self showMainWindow];
+
+	
+	if ([self isRegistered])
+	{
+		NSAlert *al = [NSAlert alertWithMessageText:@"Already Registered" defaultButton:@"Ok" alternateButton: nil otherButton: nil informativeTextWithFormat:@"This copy of Read Later is already registered. :-)"];
+		[al setAlertStyle: NSWarningAlertStyle];
+		[al runModal];
+		
+		//[self hideMainWindow];
+		return;
+	}
+	
+    NSString* url = [[event paramDescriptorForKeyword:keyDirectObject] stringValue];
+
+	NSArray *protocolAndTheRest = [url componentsSeparatedByString:@"://"];
+	if ([protocolAndTheRest count] != 2) 
+	{
+		NSAlert *al = [NSAlert alertWithMessageText:@"License URL Invalid" defaultButton:@"Ok" alternateButton: nil otherButton: nil informativeTextWithFormat:@"The license link you clicked on was invalid. Try again or enter the license information manually in the preferences dialog."];
+		[al setAlertStyle: NSWarningAlertStyle];
+		[al runModal];
+//		[self hideMainWindow];
+		return;
+	}
+	
+	// Separate user name and serial number
+	NSArray *userNameAndSerialNumber = [[protocolAndTheRest objectAtIndex:1] componentsSeparatedByString:@"/"];
+	if ([userNameAndSerialNumber count] != 2) 
+	{
+		NSAlert *al = [NSAlert alertWithMessageText:@"Already Registered" defaultButton:@"Ok" alternateButton: nil otherButton: nil informativeTextWithFormat:@"The license link you clicked on was invalid. Try again or enter the license information manually in the preferences dialog."];
+		[al setAlertStyle: NSWarningAlertStyle];
+		[al runModal];
+		
+//		[self hideMainWindow];
+		return;
+	}
+	
+	// Decode base64-encoded user name
+	NSString *usernameEncoded = (NSString *)[userNameAndSerialNumber objectAtIndex:0];
+	NSString *username = [usernameEncoded URLDecodedString];
+	NSLog(@"User name: %@", username);
+	NSString *serial = (NSString *)[userNameAndSerialNumber objectAtIndex:1];
+	NSLog(@"Serial: %@", serial);
+	
+	if (!username || !serial)
+	{	
+		NSAlert *al = [NSAlert alertWithMessageText:@"Already Registered" defaultButton:@"Ok" alternateButton: nil otherButton: nil informativeTextWithFormat:@"The license link you clicked on was invalid. Try again or enter the license information manually in the preferences dialog."];
+		[al setAlertStyle: NSWarningAlertStyle];
+		[al runModal];
+		
+//		[self hideMainWindow];
+		return;
+	}
+	
+
+	NSUserDefaults *defs = [NSUserDefaults standardUserDefaults];
+	[defs setObject: username forKey: @"owner"];
+	[defs setObject: serial forKey: @"license"];
+	[defs synchronize];
+	
+	if ([self isRegistered])
+	{
+		NSAlert *al = [NSAlert alertWithMessageText:@"Registration Successful" defaultButton:@"Ok" alternateButton: nil otherButton: nil informativeTextWithFormat:@"The registration was successful. Thank you for registering Read Later!\n\nRead Later will restart now."];
+		[al setAlertStyle: NSInformationalAlertStyle];
+		[al runModal];
+		
+		// Relaunch.
+		// The shell script waits until the original app process terminates.
+		// This is done so that the relaunched app opens as the front-most app.
+		
+		NSBundle *mainBundle = [NSBundle mainBundle];
+		NSString *bundlePath = [mainBundle bundlePath];
+		
+		int pid = [[NSProcessInfo processInfo] processIdentifier];
+		NSString *script = [NSString stringWithFormat:@"while [ `ps -p %d | wc -l` -gt 1 ]; do sleep 0.1; done; open '%@'", pid, bundlePath];
+		[NSTask launchedTaskWithLaunchPath:@"/bin/sh" arguments:[NSArray arrayWithObjects:@"-c", script, nil]];
+		[NSApp terminate:nil];
+		
+	}
+	else 
+	{
+		NSAlert *al = [NSAlert alertWithMessageText:@"Registration Failed" defaultButton:@"Ok" alternateButton: nil otherButton: nil informativeTextWithFormat:@"The registration failed. Check if you entered everything correctly and try again.\n\nShould the registration fail again contact the support: supportfluxforge.com"];
+		[al setAlertStyle: NSWarningAlertStyle];
+		[al runModal];
+		
+	}
+	
+	
+}
+
 #pragma mark -
 #pragma mark app delegate 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
+	[[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+	
 	[self setShouldShowWindow: YES];
 	[self registerUserDefaults];
 
