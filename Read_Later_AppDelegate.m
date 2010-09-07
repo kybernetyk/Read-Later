@@ -137,16 +137,6 @@
 #pragma mark app delegate 
 -(void)applicationDidFinishLaunching:(NSNotification *)aNotification 
 {
-	[[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
-	
-	[self setShouldShowWindow: YES];
-	[self registerUserDefaults];
-
-	if (![self isRegistered])
-	{
-		NSLog(@"lol! we're not regist0rd!");
-		
-	}
 
 	titleQueue = [[NSOperationQueue alloc] init];
 	NSLog(@"applicationDidFinishLaunching");
@@ -169,6 +159,15 @@
 	RegisterEventHotKey(48, optionKey, gMyHotKeyID, GetApplicationEventTarget(), 0, &gMyHotKeyRef);
 	
 	//	UnregisterEventHotKey(gMyHotKeyRef);
+	[[NSAppleEventManager sharedAppleEventManager] setEventHandler:self andSelector:@selector(handleURLEvent:withReplyEvent:) forEventClass:kInternetEventClass andEventID:kAEGetURL];
+	
+	[self setShouldShowWindow: YES];
+	[self registerUserDefaults];
+	
+	if (![self isRegistered])
+	{
+		NSLog(@"lol! we're not regist0rd!");
+	}
 	
 	//fire up our core data stuff
 	NSError *err;
