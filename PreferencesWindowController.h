@@ -33,4 +33,6 @@
 - (IBAction) handleRegisterButton: (id) sender;
 - (IBAction) handleBuyButton: (id) sender;
 
+//updates
+- (IBAction) checkForUpdates: (id) sender;
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "PreferencesWindowController.h"
-
+#import <Sparkle/Sparkle.h>
 
 @implementation PreferencesWindowController
 - (void)setupToolbar
@@ -104,5 +104,11 @@
 	
 }
 
+#pragma mark -
+#pragma mark updates
+- (IBAction) checkForUpdates: (id) sender
+{
+	[[SUUpdater sharedUpdater] checkForUpdatesInBackground];
+}
 
 @end

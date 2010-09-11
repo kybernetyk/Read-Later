@@ -248,7 +248,7 @@ static FXDataCore *sharedSingleton = nil;
     return persistentStoreCoordinator;
 }
 
-- (BOOL) saveContext
+- (BOOL) saveContextWithDelayedSync
 {
 	
 	NSError *error = nil;
@@ -272,6 +272,32 @@ static FXDataCore *sharedSingleton = nil;
 	return YES;
 	
 }
+
+- (BOOL) saveContextWithInstantSync
+{
+	
+	NSError *error = nil;
+    
+    if (![[self managedObjectContext] commitEditing]) 
+	{
+		// NSLog(@"%@:%s unable to commit editing before saving", [self class], _cmd);
+    }
+	
+    if (![[self managedObjectContext] save:&error]) 
+	{
+        [[NSApplication sharedApplication] presentError:error];
+		return NO;
+    }
+	
+	[syncTimer invalidate];
+	syncTimer = nil;
+	
+	[self kickOffSync: nil];
+	
+	return YES;
+	
+}
+
 
 - (void) kickOffSync: (id) timer
 {

@@ -36,6 +36,7 @@
 		038DCDDD1235206800CE2B2E /* decoder.c in Sources */ = {isa = PBXBuildFile; fileRef = 038DCDDB1235206800CE2B2E /* decoder.c */; };
 		038DCDE1123520A400CE2B2E /* libcrypto.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 038DCDE0123520A400CE2B2E /* libcrypto.dylib */; };
 		038DCE261235243000CE2B2E /* Registration.png in Resources */ = {isa = PBXBuildFile; fileRef = 038DCE251235243000CE2B2E /* Registration.png */; };
+		03B681EC1237C90800D55F57 /* FEATURES in Resources */ = {isa = PBXBuildFile; fileRef = 03B681EB1237C90800D55F57 /* FEATURES */; };
 		03C16A811235736E00140152 /* FXFetchSiteTitleOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C16A801235736E00140152 /* FXFetchSiteTitleOperation.m */; };
 		03C16A841235745C00140152 /* NSString+Slice.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C16A831235745C00140152 /* NSString+Slice.m */; };
 		2F7446990DB6B7EA00F9684A /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2F7446970DB6B7EA00F9684A /* MainMenu.xib */; };
@@ -118,6 +119,7 @@
 		038DCDDC1235206800CE2B2E /* decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = decoder.h; sourceTree = "<group>"; };
 		038DCDE0123520A400CE2B2E /* libcrypto.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libcrypto.dylib; path = usr/lib/libcrypto.dylib; sourceTree = SDKROOT; };
 		038DCE251235243000CE2B2E /* Registration.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Registration.png; sourceTree = "<group>"; };
+		03B681EB1237C90800D55F57 /* FEATURES */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FEATURES; sourceTree = "<group>"; };
 		03C16A7F1235736E00140152 /* FXFetchSiteTitleOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FXFetchSiteTitleOperation.h; sourceTree = "<group>"; };
 		03C16A801235736E00140152 /* FXFetchSiteTitleOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FXFetchSiteTitleOperation.m; sourceTree = "<group>"; };
 		03C16A821235745C00140152 /* NSString+Slice.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Slice.h"; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				32CA4F630368D1EE00C91783 /* Read_Later_Prefix.pch */,
 				29B97316FDCFA39411CA2CEA /* main.m */,
 				0323AF5B123128D3007754F1 /* defs.h */,
+				03B681EB1237C90800D55F57 /* FEATURES */,
 			);
 			name = "Other Sources";
 			sourceTree = "<group>";
@@ -402,6 +405,7 @@
 				0323AFF712312F26007754F1 /* Updates.tiff in Resources */,
 				038DCD991235121800CE2B2E /* dsa_pub.pem in Resources */,
 				038DCE261235243000CE2B2E /* Registration.png in Resources */,
+				03B681EC1237C90800D55F57 /* FEATURES in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

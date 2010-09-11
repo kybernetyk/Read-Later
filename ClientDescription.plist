@@ -19,5 +19,7 @@
 	</dict>
 	<key>Type</key>
 	<string>app</string>
+	<key>ImagePath</key>
+	<string>readlater.icns</string>
 </dict>
 </plist>

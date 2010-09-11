@@ -112,7 +112,7 @@
 	
 	[[[FXDataCore sharedCore] managedObjectContext] deleteObject: bookmark];
 	
-	[[FXDataCore sharedCore] saveContext];	
+	[[FXDataCore sharedCore] saveContextWithDelayedSync];	
 	[self setBookmarks: nil]; //trigger reload of stuff
 	
 	bookmarks = [self bookmarks];
@@ -146,7 +146,7 @@
 	
 	NSLog(@"visiting: %@", [bookmark URL]);
 	[bookmark setVisited: [NSNumber numberWithBool: YES]];
-	[[FXDataCore sharedCore] saveContext];
+	[[FXDataCore sharedCore] saveContextWithDelayedSync];
 	[self setBookmarks: nil]; //trigger reload of stuff
 	
 	NSURL *url = [NSURL URLWithString: [bookmark URL]];

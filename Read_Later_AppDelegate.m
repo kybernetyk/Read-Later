@@ -178,12 +178,18 @@
 	[self showMainWindow];
 }
 
+/*- (void) applicationWillTerminate:(NSNotification *)aNotification
+{
+	NSError *error;
+	ISyncClient *clnt = [[[FXDataCore sharedCore] syncHelper] syncClient: &error];
+	[[ISyncManager sharedManager] unregisterClient: clnt];
+}*/
+
 - (void) registerUserDefaults
 {
 	NSDictionary *regDict = [NSDictionary dictionaryWithObjectsAndKeys:
 							 @"mainWindowFrameAutosave",kDefsKeysMainWindowAutosaveFrameName,
-							//@"Jaroslaw Szpilewski", @"owner",
-							// @"GAXAE-F9A3A-LH9KU-6XECT-FR34S-J9PHA-YT6ZA-XR7VA-A9KQB-SUSN5-RGXSJ-SYU29-TVJXF-79TYD-GBH3V-UC", @"license",
+							 [NSNumber numberWithBool: YES], @"shouldRememberWindowSizeAndPosition",
 							 nil];
 	
 	[[NSUserDefaults standardUserDefaults] registerDefaults: regDict];
@@ -200,7 +206,7 @@
 
 - (void)applicationWillTerminate:(NSNotification *)aNotification
 {
-	[[FXDataCore sharedCore] saveContext];
+	[[FXDataCore sharedCore] saveContextWithInstantSync];
 }
 
 - (BOOL)applicationShouldHandleReopen:(NSApplication *)theApplication hasVisibleWindows:(BOOL)flag
@@ -316,7 +322,7 @@
 		[bookmark setAdded: [NSDate date]];
 		[bookmark setSiteTitle: @"penis!"];
 		[bookmark setNote: @"LOL ICH BIN LOL!"];
-		[dataCore saveContext];
+		[dataCore saveContextWithDelayedSync];
 
 		FXFetchSiteTitleOperation *to = [[FXFetchSiteTitleOperation alloc] init];
 		[to setDelegate: self];
@@ -336,7 +342,7 @@
 		NSLog(@"setting title: %@", title);
 		FXBookmark *bookmark = (FXBookmark *)[[[FXDataCore sharedCore] managedObjectContext] objectWithID: [operation objectID]];
 		[bookmark setSiteTitle: title];
-		[[FXDataCore sharedCore] saveContext];
+		[[FXDataCore sharedCore] saveContextWithDelayedSync];
 	}
 
 	

@@ -26,7 +26,8 @@
 @property (nonatomic, retain, readonly) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly) FXSyncHelper *syncHelper;
 
-- (BOOL) saveContext;
+- (BOOL) saveContextWithDelayedSync;
+- (BOOL) saveContextWithInstantSync;
 - (NSString *)applicationSupportDirectory;
 
 - (id) insertNewObjectForEntityForName: (NSString *) entityName;

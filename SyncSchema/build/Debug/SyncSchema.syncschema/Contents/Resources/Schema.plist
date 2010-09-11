@@ -6,7 +6,7 @@
 	<array>
 		<dict>
 			<key>ImagePath</key>
-			<string>SyncDataClass.tiff</string>
+			<string>readlater.icns</string>
 			<key>Name</key>
 			<string>com.fluxforge.readlater</string>
 		</dict>

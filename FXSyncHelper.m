@@ -59,7 +59,7 @@ static BOOL chatty = YES;
 - (void)client:(ISyncClient*)client mightWantToSyncEntityNames:(NSArray*)names
 {
 	NSLog(@"mightWantToSyncEntityNames: %@",names);
-	[[FXDataCore sharedCore] saveContext];
+	[[FXDataCore sharedCore] saveContextWithInstantSync];
 }
 
 - (BOOL)performSync:(NSError**)err;

@@ -7,7 +7,7 @@
 	<key>CFBundleExecutable</key>
 	<string>SyncSchema</string>
 	<key>CFBundleIdentifier</key>
-	<string>com.apple.SyncServices</string>
+	<string>com.fluxforge.readlater.SyncSchema</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
