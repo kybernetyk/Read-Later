@@ -186,7 +186,20 @@
 	FXBookmark *bookmark = [[self bookmarks] objectAtIndex: rowIndex];
 	
 	
-	return [bookmark valueForKey: [aTableColumn identifier]];
+	if ([[aTableColumn identifier] isEqualToString: @"visited"])
+		return [bookmark valueForKey: [aTableColumn identifier]];	
+	
+	NSString *title = [NSString stringWithFormat: @"%@", [bookmark siteTitle]];
+	/*if ([title length] > 16)
+	{
+		title = [title stringBySlicingTo: 16];
+		title = [title stringByAppendingString: @"\u07F3"];
+	}*/
+	
+	NSString *ret = [NSString stringWithFormat: @"%@ (%@)", title, [bookmark URL]];
+	
+	return ret;
+	
 	
 	
 	

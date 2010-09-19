@@ -80,6 +80,50 @@ N/Users/jrk/Dropbox/Read Later/SyncSchema/build/Debug/SyncSchema.syncschema/Cont
 t1283792151
 s28500
 
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/English.lproj/Schema.strings
+c000000004C967BD4000000000000032C
+t1284930516
+s812
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/Schema.plist
+c000000004C967BD4000000000000027D
+t1284930516
+s637
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/SyncDataClass.tiff
+c000000004C861C0E0000000000006F54
+t1283857422
+s28500
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema
+t1283857422
+s102
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Info.plist
+t1284930516
+s731
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings
+t1284930516
+s812
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/Schema.plist
+t1284930516
+s637
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/SyncDataClass.tiff
+t1283857422
+s28500
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/readlater.icns
+t1284930516
+s119733
+
+N/Users/jrk/code/Mac/Read-Later/SyncSchema/readlater.icns
+c000000004C967BD5000000000001D3B5
+t1284930517
+s119733
+
 N/Volumes/Work/Code/Mac/Read-Later/SyncSchema/English.lproj/Schema.strings
 c000000004C879D3C000000000000032C
 t1283956028
@@ -125,8 +169,8 @@ t1283952736
 s119733
 
 NInfo.plist
-c000000004C8799D600000000000002E8
-t1283955158
+c000000004C967BD400000000000002E8
+t1284930516
 s744
 
 CCheck dependencies
@@ -143,6 +187,9 @@ xEnglish.lproj/Schema.strings
 lSLF07#2@33"Copy English.lproj/Schema.strings305484757#305484757#0(0"0(0#0#69"/Users/jrk/Dropbox/Read Later/SyncSchema/English.lproj/Schema.strings8616288768#381"    cd "/Users/jrk/Dropbox/Read Later/SyncSchema"    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 English.lproj/Schema.strings --outdir "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/English.lproj"0#
 
 CCopyStringsFile /Users/jrk/Code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings English.lproj/Schema.strings
+r0
+
+CCopyStringsFile /Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings English.lproj/Schema.strings
 r0
 
 CCopyStringsFile /Volumes/Work/Code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings English.lproj/Schema.strings
@@ -164,6 +211,9 @@ xSyncDataClass.tiff
 lSLF07#2@23"Copy SyncDataClass.tiff305484757#305484757#0(0"0(0#0#59"/Users/jrk/Dropbox/Read Later/SyncSchema/SyncDataClass.tiff8616454208#264"    cd "/Users/jrk/Dropbox/Read Later/SyncSchema"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copytiff SyncDataClass.tiff --outdir "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources"0#
 
 CCopyTiffFile /Users/jrk/Code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/SyncDataClass.tiff SyncDataClass.tiff
+r0
+
+CCopyTiffFile /Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/SyncDataClass.tiff SyncDataClass.tiff
 r0
 
 CCopyTiffFile /Volumes/Work/Code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Resources/SyncDataClass.tiff SyncDataClass.tiff
@@ -205,6 +255,9 @@ lSLF07#2@18"Process Info.plist305484757#305484757#0(0"0(0#0#51"/Users/jrk/Dropbo
 CProcessInfoPlistFile /Users/jrk/Code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Info.plist Info.plist
 r0
 
+CProcessInfoPlistFile /Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Info.plist Info.plist
+r0
+
 CProcessInfoPlistFile /Volumes/Work/Code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema/Contents/Info.plist Info.plist
 s305648015.029561
 e305648015.041134
@@ -223,6 +276,9 @@ x/Users/jrk/Dropbox/Read Later/SyncSchema/build/Debug/SyncSchema.syncschema
 lSLF07#2@80"Touch /Users/jrk/Dropbox/Read Later/SyncSchema/build/Debug/SyncSchema.syncschema305485022#305485022#0(0"0(0#0#0"8615839904#149"    cd "/Users/jrk/Dropbox/Read Later/SyncSchema"    /usr/bin/touch -c "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Debug/SyncSchema.syncschema"0#
 
 CTouch /Users/jrk/Code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema
+r0
+
+CTouch /Users/jrk/code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema
 r0
 
 CTouch /Volumes/Work/Code/Mac/Read-Later/SyncSchema/build/Debug/SyncSchema.syncschema

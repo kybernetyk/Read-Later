@@ -169,6 +169,7 @@
 		0323AFA712312B89007754F1 /* Main Window */ = {
 			isa = PBXGroup;
 			children = (
+				0385001C122C340300B7A5DF /* MainWindow.xib */,
 				03850019122C33E500B7A5DF /* MainWindowController.h */,
 				0385001A122C33E500B7A5DF /* MainWindowController.m */,
 				03850047122C35D900B7A5DF /* MainWindow.h */,
@@ -303,7 +304,6 @@
 				0323AFF212312F26007754F1 /* Advanced.png */,
 				0323AFF312312F26007754F1 /* General.png */,
 				0323AFF412312F26007754F1 /* Updates.tiff */,
-				0385001C122C340300B7A5DF /* MainWindow.xib */,
 				036F3B48122E9E5800F645C1 /* readlater.icns */,
 				8D1107310486CEB800E47090 /* Read_Later-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
