@@ -1,4 +1,5 @@
 build/*
+SyncSchema/build/*
 .DS_Store
 profile
 *.mode1v3
