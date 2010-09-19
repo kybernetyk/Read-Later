@@ -1,7 +1,7 @@
 TSyncSchema
 v7
 r0
-t306624215.596002
+t306624297.421093
 cCheck dependencies
 cProcessInfoPlistFile /Users/jrk/code/Mac/Read-Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Info.plist Info.plist
 cCpResource build/Release/SyncSchema.syncschema/Contents/Resources/Schema.plist Schema.plist
@@ -175,7 +175,7 @@ s744
 
 CCheck dependencies
 r0
-lSLF07#2@18"Check dependencies306624215#306624215#0(0"0(0#1#0"8622962176#0"0#
+lSLF07#2@18"Check dependencies306624297#306624297#0(0"0(0#1#0"8607928864#0"0#
 
 CCopyStringsFile "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings" English.lproj/Schema.strings
 s305495778.107519

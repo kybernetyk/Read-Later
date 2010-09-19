@@ -190,24 +190,12 @@
 		return [bookmark valueForKey: [aTableColumn identifier]];	
 	
 	NSString *title = [NSString stringWithFormat: @"%@", [bookmark siteTitle]];
-	/*if ([title length] > 16)
-	{
-		title = [title stringBySlicingTo: 16];
-		title = [title stringByAppendingString: @"\u07F3"];
-	}*/
 	
-	NSString *ret = [NSString stringWithFormat: @"%@ (%@)", title, [bookmark URL]];
+	if (!title || [title length] == 0)
+		return [NSString stringWithFormat: @"%@",[bookmark URL]];
 	
-	return ret;
+	return [NSString stringWithFormat: @"%@ (%@)", title, [bookmark URL]];
 	
-	
-	
-	
-	/*
-	 if ([[aTableColumn identifier] isEqualToString: @"location"])
-	 return [se location];
-	 else
-	 return [NSNumber numberWithBool: [se visited]];*/
 	
 }
 - (NSString *)tableView:(NSTableView *)aTableView 
