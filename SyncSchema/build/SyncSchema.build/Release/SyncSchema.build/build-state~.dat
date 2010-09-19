@@ -1,101 +1,0 @@
-TSyncSchema
-v7
-r0
-t305468286.952874
-cCheck dependencies
-cProcessInfoPlistFile "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Info.plist" Info.plist
-cCpResource build/Release/SyncSchema.syncschema/Contents/Resources/Schema.plist Schema.plist
-cCopyTiffFile "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/SyncDataClass.tiff" SyncDataClass.tiff
-cCopyStringsFile "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings" English.lproj/Schema.strings
-cTouch "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema"
-
-N/Users/jrk/Dropbox/Read Later/SyncSchema/English.lproj/Schema.strings
-c000000004C7E73630000000000000588
-t1283355491
-s1416
-
-N/Users/jrk/Dropbox/Read Later/SyncSchema/Schema.plist
-c000000004C7EB6070000000000000279
-t1283372551
-s633
-
-N/Users/jrk/Dropbox/Read Later/SyncSchema/SyncDataClass.tiff
-c000000004C7E50850000000000006F54
-t1283346565
-s28500
-
-N/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema
-t1283775486
-s102
-
-N/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Info.plist
-t1283775486
-s719
-
-N/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings
-t1283775486
-s1416
-
-N/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/Schema.plist
-t1283775486
-s633
-
-N/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/SyncDataClass.tiff
-t1283775486
-s28500
-
-NInfo.plist
-c000000004C7E5085000000000000030C
-t1283346565
-s780
-
-CCheck dependencies
-r0
-lSLF07#2@18"Check dependencies305468285#305468286#0(0"0(0#1#0"8611354016#0"0#
-
-CCopyStringsFile "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings" English.lproj/Schema.strings
-s305468286.268220
-e305468286.917685
-r1
-xCopyStringsFile
-x/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/English.lproj/Schema.strings
-xEnglish.lproj/Schema.strings
-o2010-09-06 14:18:06.861 plutil[38010:60f] CFPropertyListCreateFromXMLData(): Old-style plist parser: missing semicolon in dictionary.
-oEnglish.lproj/Schema.strings: Unexpected character / at line 1
-lSLF07#2@33"Copy English.lproj/Schema.strings305468286#305468286#0(197"2010-09-06 14:18:06.861 plutil[38010:60f] CFPropertyListCreateFromXMLData(): Old-style plist parser: missing semicolon in dictionary.English.lproj/Schema.strings: Unexpected character / at line 10(0#0#69"/Users/jrk/Dropbox/Read Later/SyncSchema/English.lproj/Schema.strings8614289440#383"    cd "/Users/jrk/Dropbox/Read Later/SyncSchema"    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-16 --outputencoding UTF-16 English.lproj/Schema.strings --outdir "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/English.lproj"0#
-
-CCopyTiffFile "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/SyncDataClass.tiff" SyncDataClass.tiff
-s305468286.029318
-e305468286.828661
-r1
-xCopyTiffFile
-x/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources/SyncDataClass.tiff
-xSyncDataClass.tiff
-lSLF07#2@23"Copy SyncDataClass.tiff305468286#305468286#0(0"0(0#0#59"/Users/jrk/Dropbox/Read Later/SyncSchema/SyncDataClass.tiff8596626368#266"    cd "/Users/jrk/Dropbox/Read Later/SyncSchema"    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copytiff SyncDataClass.tiff --outdir "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources"0#
-
-CCpResource build/Release/SyncSchema.syncschema/Contents/Resources/Schema.plist Schema.plist
-s305468286.028003
-e305468286.268115
-r1
-xCpResource
-xbuild/Release/SyncSchema.syncschema/Contents/Resources/Schema.plist
-xSchema.plist
-lSLF07#2@17"Copy Schema.plist305468286#305468286#0(0"0(0#0#53"/Users/jrk/Dropbox/Read Later/SyncSchema/Schema.plist8604484672#373"    cd "/Users/jrk/Dropbox/Read Later/SyncSchema"    /Developer/Library/PrivateFrameworks/DevToolsCore.framework/Resources/pbxcp -exclude .DS_Store -exclude CVS -exclude .svn -strip-debug-symbols -resolve-src-symlinks "/Users/jrk/Dropbox/Read Later/SyncSchema/Schema.plist" "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Resources"0#
-
-CProcessInfoPlistFile "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Info.plist" Info.plist
-s305468286.014046
-e305468286.027930
-r1
-xProcessInfoPlistFile
-x/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Info.plist
-xInfo.plist
-lSLF07#2@18"Process Info.plist305468286#305468286#0(0"0(0#0#51"/Users/jrk/Dropbox/Read Later/SyncSchema/Info.plist8610604800#230"    cd "/Users/jrk/Dropbox/Read Later/SyncSchema"    builtin-infoPlistUtility Info.plist -expandbuildsettings -platform macosx -o "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema/Contents/Info.plist"0#
-
-CTouch "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema"
-s305468286.917772
-e305468286.952840
-r1
-xTouch
-x/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema
-lSLF07#2@82"Touch /Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema305468286#305468286#0(0"0(0#0#0"7300950054283080704#151"    cd "/Users/jrk/Dropbox/Read Later/SyncSchema"    /usr/bin/touch -c "/Users/jrk/Dropbox/Read Later/SyncSchema/build/Release/SyncSchema.syncschema"0#
-
