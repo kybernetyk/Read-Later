@@ -320,8 +320,9 @@
 		FXBookmark *bookmark = [dataCore insertNewObjectForEntityForName: @"Bookmark"];
 		[bookmark setURL: [url description]];
 		[bookmark setAdded: [NSDate date]];
-		[bookmark setSiteTitle: @"penis!"];
-		[bookmark setNote: @"LOL ICH BIN LOL!"];
+		//[bookmark setSiteTitle: [url description]]
+//		[bookmark setSiteTitle: @"penis!"];
+//		[bookmark setNote: @"LOL ICH BIN LOL!"];
 		[dataCore saveContextWithDelayedSync];
 
 		FXFetchSiteTitleOperation *to = [[FXFetchSiteTitleOperation alloc] init];

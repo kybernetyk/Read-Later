@@ -207,11 +207,12 @@
 	if ([[aTableColumn identifier] isEqualToString: @"visited"])
 		return [bookmark valueForKey: [aTableColumn identifier]];	
 	
-	NSString *title = [NSString stringWithFormat: @"%@", [bookmark siteTitle]];
-	
-	if (!title || [title length] == 0)
+	if (![bookmark siteTitle] || [[bookmark siteTitle] length] == 0)
+	{
 		return [NSString stringWithFormat: @"%@",[bookmark URL]];
-	
+	}
+		
+	NSString *title = [NSString stringWithFormat: @"%@", [bookmark siteTitle]];
 	return [NSString stringWithFormat: @"%@ (%@)", title, [bookmark URL]];
 	
 	
