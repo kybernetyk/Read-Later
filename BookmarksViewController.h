@@ -22,6 +22,9 @@
 
 }
 
+@property (retain) NSView *listView;
+@property (retain) NSView *detailView;
+
 - (void) createListView;
 - (void) destroyListView;
 

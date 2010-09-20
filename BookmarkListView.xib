@@ -117,7 +117,7 @@
 												<string key="NSColorName">controlBackgroundColor</string>
 												<object class="NSColor" key="NSColor">
 													<int key="NSColorSpace">3</int>
-													<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
+													<bytes key="NSWhite">MC42NjY2NjY2ODY1AA</bytes>
 												</object>
 											</object>
 											<object class="NSColor" key="NSTextColor">
@@ -219,7 +219,7 @@
 						<int key="NSViewLayerContentsRedrawPolicy">2</int>
 						<reference key="NSTarget" ref="281805164"/>
 						<string key="NSAction">_doScroller:</string>
-						<double key="NSPercent">0.92543859649122806</double>
+						<double key="NSPercent">0.92543858289718628</double>
 					</object>
 					<object class="NSScroller" id="584096310">
 						<reference key="NSNextResponder" ref="281805164"/>
@@ -230,7 +230,7 @@
 						<int key="NSsFlags">1</int>
 						<reference key="NSTarget" ref="281805164"/>
 						<string key="NSAction">_doScroller:</string>
-						<double key="NSPercent">0.99772209567198178</double>
+						<double key="NSPercent">0.9977220892906189</double>
 					</object>
 					<object class="NSClipView" id="1051902746">
 						<reference key="NSNextResponder" ref="281805164"/>
@@ -275,14 +275,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">tableView</string>
-						<reference key="source" ref="1001"/>
-						<reference key="destination" ref="643109073"/>
-					</object>
-					<int key="connectionID">12</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">dataSource</string>
 						<reference key="source" ref="643109073"/>
 						<reference key="destination" ref="1001"/>
@@ -296,6 +288,14 @@
 						<reference key="destination" ref="1001"/>
 					</object>
 					<int key="connectionID">14</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">tableView</string>
+						<reference key="source" ref="1001"/>
+						<reference key="destination" ref="643109073"/>
+					</object>
+					<int key="connectionID">15</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -409,7 +409,7 @@
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{329, 555}, {585, 190}}</string>
+					<string>{{357, 555}, {585, 190}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -435,7 +435,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">14</int>
+			<int key="maxID">15</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

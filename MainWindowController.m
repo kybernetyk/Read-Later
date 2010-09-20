@@ -11,6 +11,8 @@
 #import "FXBookmark.h"
 
 @implementation MainWindowController
+@synthesize sidebarView;
+@synthesize bookmarksView;
 
 - (void) updateFrameAutosave
 {
@@ -67,6 +69,9 @@
 	
 	[self destroySidebarView];
 	[self destroyBookmarksView];
+	
+	[self setBookmarksView: nil];
+	[self setSidebarView: nil];
 	
 	NSLog(@"MainWindowController dealloc!");
 //	NSLog(@"dealloc du fotze: %i", [tableView retainCount]);

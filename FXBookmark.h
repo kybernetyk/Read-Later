@@ -21,7 +21,7 @@
 @property (nonatomic, retain) NSString * note;
 @property (nonatomic, retain) NSString * siteTitle;
 
-
+- (NSString *) headline;
 
 @end
 

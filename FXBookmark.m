@@ -17,4 +17,13 @@
 @dynamic note;
 @dynamic siteTitle;
 
+- (NSString *) headline
+{
+	if (![self siteTitle] || [[self siteTitle] length] == 0)
+	{
+		return [NSString stringWithFormat: @"%@",[self URL]];
+	}
+	return [NSString stringWithFormat: @"%@ (%@)", [self siteTitle], [self URL]];
+}
+
 @end

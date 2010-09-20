@@ -10,6 +10,8 @@
 
 
 @implementation BookmarksViewController
+@synthesize listView;
+@synthesize detailView;
 
 - (void) awakeFromNib
 {
@@ -27,6 +29,8 @@
 	[self destroyListView];
 	[self destroyDetailView];
 
+	[self setListView: nil];
+	[self setDetailView: nil];
 	[super dealloc];
 }
 

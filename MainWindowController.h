@@ -22,6 +22,8 @@
 	//NSArray *bookmarks;
 }
 
+@property (retain) NSView *sidebarView;
+@property (retain) NSView *bookmarksView;
 
 //@property (retain) NSArray *bookmarks;
 - (void) updateFrameAutosave;

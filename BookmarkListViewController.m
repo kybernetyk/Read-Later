@@ -36,6 +36,7 @@
 
 - (void) dealloc
 {
+	NSLog(@"list view controller cu");
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 	[center removeObserver: self];
 
@@ -44,7 +45,7 @@
 	//you have forgotten to connect the table view in IB to this class' outlet!
 	//connect the table view to the tableView outlet!
 	
-	
+	[tableView resignFirstResponder];
 	//important so the table view does not poll our dead body
 	//the table view will be released shortly after us
 	[tableView setDataSource: nil];
@@ -202,21 +203,20 @@
 		return nil;
 	
 	FXBookmark *bookmark = [[self bookmarks] objectAtIndex: rowIndex];
-	//NSLog(@"bookmark: %@", bookmark);
-	
 	if ([[aTableColumn identifier] isEqualToString: @"visited"])
 		return [bookmark valueForKey: [aTableColumn identifier]];	
+
+	return [bookmark headline];
 	
-	if (![bookmark siteTitle] || [[bookmark siteTitle] length] == 0)
+/*	if (![bookmark siteTitle] || [[bookmark siteTitle] length] == 0)
 	{
 		return [NSString stringWithFormat: @"%@",[bookmark URL]];
 	}
 		
 	NSString *title = [NSString stringWithFormat: @"%@", [bookmark siteTitle]];
-	return [NSString stringWithFormat: @"%@ (%@)", title, [bookmark URL]];
-	
-	
+	return [NSString stringWithFormat: @"%@ (%@)", title, [bookmark URL]];*/
 }
+
 - (NSString *)tableView:(NSTableView *)aTableView 
 		 toolTipForCell:(NSCell *)aCell 
 				   rect:(NSRectPointer)rect 

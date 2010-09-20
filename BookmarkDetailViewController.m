@@ -23,6 +23,10 @@
 
 - (void) dealloc
 {
+	[self setTitleLabel: nil];
+	[self setUrlLabel: nil];
+	[self setAddedOnLabel: nil];
+	[self setVisitedLabel: nil];
 	
 	NSLog(@"detail view controller dealloc");
 	[super dealloc];
