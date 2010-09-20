@@ -369,8 +369,6 @@ static DBPrefsWindowController *_sharedPrefsWindowController = nil;
 }
 
 
-
-
 - (void)animationDidEnd:(NSAnimation *)animation
 {
 	NSView *subview;

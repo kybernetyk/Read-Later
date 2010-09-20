@@ -32,22 +32,12 @@
 #pragma mark actions
 - (void) handleRemoveBookmarkButton: (id) sender
 {
-	[[[FXDataCore sharedCore] managedObjectContext] deleteObject: [self representedObject]];
-	[[FXDataCore sharedCore] saveContextWithDelayedSync];	
+	[[NSNotificationCenter defaultCenter] postNotificationName: @"FXRemoveBookmarkButtonPressed" object: [self representedObject]];
 }
 
 - (void) handleVisitButton: (id) sender
 {
-	FXBookmark *bookmark = (FXBookmark *)[self representedObject];
-	[bookmark setLastVisited: [NSNumber numberWithBool: YES]];
-	
-	NSLog(@"visiting: %@", [bookmark URL]);
-	[bookmark setVisited: [NSNumber numberWithBool: YES]];
-	[[FXDataCore sharedCore] saveContextWithDelayedSync];
-	
-	NSURL *url = [NSURL URLWithString: [bookmark URL]];
-	[[NSWorkspace sharedWorkspace] openURL: url];
-	
+	[[NSNotificationCenter defaultCenter] postNotificationName: @"FXVisitBookmarkButtonPressed" object: [self representedObject]];
 }
 
 - (IBAction) readCheckboxValueChanged: (id) sender

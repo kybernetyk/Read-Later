@@ -31,5 +31,6 @@
 - (NSString *)applicationSupportDirectory;
 
 - (id) insertNewObjectForEntityForName: (NSString *) entityName;
+- (void) kickOffSync: (id) timer;
 
 @end

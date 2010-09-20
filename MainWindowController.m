@@ -12,14 +12,13 @@
 
 @implementation MainWindowController
 @synthesize tableView;
-@synthesize bookmarks;
 
 - (void) markNextBookmark
 {
-	NSArray *bookmarks = [self bookmarks];
+	NSArray *_bookmarks = [self bookmarks];
 	
 	FXBookmark *lastBookmark = nil;
-	for (FXBookmark *bookmark in bookmarks)
+	for (FXBookmark *bookmark in _bookmarks)
 	{
 		if ([[bookmark lastVisited] boolValue])
 		{	
@@ -28,7 +27,7 @@
 		}
 	}
 	
-	NSUInteger i = [bookmarks indexOfObject: lastBookmark];
+	NSUInteger i = [_bookmarks indexOfObject: lastBookmark];
 	if (i == NSNotFound)
 	{	
 		return;
@@ -38,7 +37,7 @@
 		i++;		
 	}
 	
-	if (i >= [bookmarks count])
+	if (i >= [_bookmarks count])
 		i--;
 	
 	[tableView selectRow: i byExtendingSelection: NO];
@@ -64,7 +63,6 @@
 	
 	if ([tableView selectedRow] >= 0)
 	{
-		NSLog(@"%i",[tableView selectedRow]);
 		FXBookmark *bookmark = [[self bookmarks] objectAtIndex: [tableView selectedRow]];
 		[self createDetailViewWithBookmark: bookmark];
 	}
@@ -75,18 +73,27 @@
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 	[center addObserver: self selector:@selector(syncSessionDidFinish:) name: @"SyncHelperDidFinishSyncSession" object: nil];
 	[center addObserver: self selector:@selector(dataChanged:) name: NSManagedObjectContextDidSaveNotification object: [[FXDataCore sharedCore] managedObjectContext]];
+	[center addObserver: self selector:@selector(removeBookmarkButton:) name: @"FXRemoveBookmarkButtonPressed" object: nil];
+	[center addObserver: self selector:@selector(visitButton:) name: @"FXVisitBookmarkButtonPressed" object: nil];	
+	
 }
 
 - (void) dataChanged: (id) notification
 {
+	
 	NSLog(@"data changed baby!");
 	[tableView reloadData];
+	
+	[self destroyDetailView];
+	if ([tableView selectedRow] < 0)
+		return;
+	FXBookmark *bookmark = [[self bookmarks] objectAtIndex: [tableView selectedRow]];
+	[self createDetailViewWithBookmark: bookmark];
+	
 }
 
 - (void) syncSessionDidFinish: (id) whatever
 {
-	[self setBookmarks: nil];
-	
 	NSLog(@"sync notification: %@", whatever);
 	[tableView reloadData];
 	//[self markNextBookmark];
@@ -125,23 +132,19 @@
 	if (i == NSNotFound || i == -1) 
 		return;
 
-	NSArray *bookmarks = [self bookmarks];
-	FXBookmark *bookmark = [bookmarks objectAtIndex: i];
-	
+	NSArray *_bookmarks = [self bookmarks];
+	FXBookmark *bookmark = [_bookmarks objectAtIndex: i];
 	[[[FXDataCore sharedCore] managedObjectContext] deleteObject: bookmark];
-	
 	[[FXDataCore sharedCore] saveContextWithDelayedSync];	
-	[self setBookmarks: nil]; //trigger reload of stuff
 	
-	bookmarks = [self bookmarks];
+	_bookmarks = [self bookmarks];
 	
-	if (i >= [bookmarks count])
-		i = [bookmarks count] - 1;
+	if (i >= [_bookmarks count])
+		i = [_bookmarks count] - 1;
 	if (i < 0)
 		i = 0;
 	[tableView reloadData];
 	[tableView selectRow: i byExtendingSelection: NO];
-	
 }
 
 - (IBAction) visitButton: (id) sender
@@ -149,23 +152,22 @@
 	NSUInteger i = [tableView selectedRow];
 	if (i == NSNotFound)
 		return;
-	NSArray *bookmarks = [self bookmarks];
-	if (i >= [bookmarks count] || i < 0)
+	NSArray *_bookmarks = [self bookmarks];
+	if (i >= [_bookmarks count] || i < 0)
 		return;
 
-	for (FXBookmark *bookmark in bookmarks)
+	for (FXBookmark *bookmark in _bookmarks)
 	{
 		[bookmark setLastVisited: [NSNumber numberWithBool: NO]];
 	}
 	
-	FXBookmark *bookmark = [bookmarks objectAtIndex: i];
+	FXBookmark *bookmark = [_bookmarks objectAtIndex: i];
 	[bookmark setLastVisited: [NSNumber numberWithBool: YES]];
 	
 	
 	NSLog(@"visiting: %@", [bookmark URL]);
 	[bookmark setVisited: [NSNumber numberWithBool: YES]];
 	[[FXDataCore sharedCore] saveContextWithDelayedSync];
-	[self setBookmarks: nil]; //trigger reload of stuff
 	
 	NSURL *url = [NSURL URLWithString: [bookmark URL]];
 	[[NSWorkspace sharedWorkspace] openURL: url];
@@ -248,6 +250,19 @@
 	return nil;
 }
 
+#pragma mark -
+#pragma mark tableview delegate
+- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
+{
+	[self destroyDetailView];
+	if ([tableView selectedRow] < 0)
+		return;
+	FXBookmark *bookmark = [[self bookmarks] objectAtIndex: [tableView selectedRow]];
+	[self createDetailViewWithBookmark: bookmark];
+}
+
+
+
 
 #pragma mark -
 #pragma mark sidebar view
@@ -293,24 +308,6 @@
 	
 	[[detailViewController view] setFrame: frame];
 	[detailView addSubview: [detailViewController view]];
-}
-
-- (void)tableViewSelectionDidChange:(NSNotification *)aNotification
-{
-//	NSLog(@"selection did change!");
-	//	[[parentObject session] setCurrentSelectedIndex: [tableView selectedRow]];
-//	[[parentObject session] setCurrentlySelectedEntry: [tableView selectedRow]];
-	[self destroyDetailView];
-	
-	if ([tableView selectedRow] < 0)
-		return;
-	
-	FXBookmark *bookmark = [[self bookmarks] objectAtIndex: [tableView selectedRow]];
-	
-//	NSLog(@"bookmark: %@/%@/%@",[bookmark URL],[bookmark siteTitle], [bookmark note]);
-	
-
-	[self createDetailViewWithBookmark: bookmark];
 }
 
 

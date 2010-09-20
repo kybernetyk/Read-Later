@@ -35,4 +35,6 @@
 
 //updates
 - (IBAction) checkForUpdates: (id) sender;
+
+- (void) updateWindowWithRegistrationInfo;
 @end

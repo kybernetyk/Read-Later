@@ -8,6 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "BookmarkDetailViewController.h"
+#import "FXBookmark.h"
 #import "SidebarViewController.h"
 
 @interface MainWindowController : NSWindowController 
@@ -20,11 +21,19 @@
 	BookmarkDetailViewController *detailViewController;
 	SidebarViewController *sidebarViewController;
 	
-	NSArray *bookmarks;
+	//NSArray *bookmarks;
 }
 @property (retain) NSTableView *tableView;
-@property (retain) NSArray *bookmarks;
+//@property (retain) NSArray *bookmarks;
 - (void) updateFrameAutosave;
 - (NSArray *) bookmarks;
+
+
+- (void) createSidebarView;
+- (void) destroySidebarView;
+
+- (void) destroyDetailView;
+- (void) createDetailViewWithBookmark: (FXBookmark *) bookmark;
+
 
 @end

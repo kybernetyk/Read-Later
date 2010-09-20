@@ -10,5 +10,6 @@
 
 
 @implementation SidebarViewController
+@synthesize outlineView;
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "PreferencesWindowController.h"
+#import "Read_Later_AppDelegate.h"
 #import <Sparkle/Sparkle.h>
 
 @implementation PreferencesWindowController
@@ -39,7 +40,7 @@
 #pragma mark Registration
 - (void) updateWindowWithRegistrationInfo
 {
-	if ([[NSApp delegate] isRegistered])
+	if ([(Read_Later_AppDelegate *)[NSApp delegate] isRegistered])
 	{
 		[registeredToNameTextField setEditable: NO];
 		[registeredToLicenseTextField setEditable: NO];
