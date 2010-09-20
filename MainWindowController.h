@@ -10,24 +10,28 @@
 #import "BookmarkDetailViewController.h"
 #import "FXBookmark.h"
 #import "SidebarViewController.h"
+#import "BookmarkListViewController.h"
 
 @interface MainWindowController : NSWindowController 
 {
-	IBOutlet NSTableView *tableView;
-	
+	IBOutlet NSView *listView;
 	IBOutlet NSView *detailView;
 	IBOutlet NSView *sidebarView;
 	
 	BookmarkDetailViewController *detailViewController;
 	SidebarViewController *sidebarViewController;
+	BookmarkListViewController *listViewController;
 	
 	//NSArray *bookmarks;
 }
-@property (retain) NSTableView *tableView;
+
+
 //@property (retain) NSArray *bookmarks;
 - (void) updateFrameAutosave;
-- (NSArray *) bookmarks;
 
+
+- (void) createListView;
+- (void) destroyListView;
 
 - (void) createSidebarView;
 - (void) destroySidebarView;

@@ -7,11 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "FXDataCore.h"
+#import "FXBookmark.h"
 
 
 @interface BookmarkListViewController : NSViewController 
 {
-
+	IBOutlet NSTableView *tableView;
 }
+
+@property (retain) NSTableView *tableView;
+
+- (NSArray *) bookmarks;
 
 @end

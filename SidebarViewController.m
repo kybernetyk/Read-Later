@@ -12,4 +12,15 @@
 @implementation SidebarViewController
 @synthesize outlineView;
 
+- (void) awakeFromNib
+{
+	
+}
+
+- (void) dealloc
+{
+	NSLog(@"sidebar controller bai");
+	[super dealloc];
+}
+
 @end
