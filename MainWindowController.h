@@ -7,18 +7,23 @@
 //
 
 #import <Cocoa/Cocoa.h>
-
+#import "BookmarkDetailViewController.h"
+#import "SidebarViewController.h"
 
 @interface MainWindowController : NSWindowController 
 {
 	IBOutlet NSTableView *tableView;
 	
+	IBOutlet NSView *detailView;
+	IBOutlet NSView *sidebarView;
+	
+	BookmarkDetailViewController *detailViewController;
+	SidebarViewController *sidebarViewController;
+	
 	NSArray *bookmarks;
 }
 @property (retain) NSTableView *tableView;
 @property (retain) NSArray *bookmarks;
-- (IBAction) visitButton: (id) sender;
-- (IBAction) removeBookmarkButton: (id) sender;
 - (void) updateFrameAutosave;
 - (NSArray *) bookmarks;
 

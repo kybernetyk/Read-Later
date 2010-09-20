@@ -57,12 +57,30 @@
 - (void) windowDidLoad
 {
 	[super windowDidLoad];
+	NSLog(@"window will load ...");
 	
 	[self updateFrameAutosave];
+	[self createSidebarView];
+	
+	if ([tableView selectedRow] >= 0)
+	{
+		NSLog(@"%i",[tableView selectedRow]);
+		FXBookmark *bookmark = [[self bookmarks] objectAtIndex: [tableView selectedRow]];
+		[self createDetailViewWithBookmark: bookmark];
+	}
+	
 	NSLog(@"window did load");
-	[self markNextBookmark];	
+	[self markNextBookmark];
+	
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 	[center addObserver: self selector:@selector(syncSessionDidFinish:) name: @"SyncHelperDidFinishSyncSession" object: nil];
+	[center addObserver: self selector:@selector(dataChanged:) name: NSManagedObjectContextDidSaveNotification object: [[FXDataCore sharedCore] managedObjectContext]];
+}
+
+- (void) dataChanged: (id) notification
+{
+	NSLog(@"data changed baby!");
+	[tableView reloadData];
 }
 
 - (void) syncSessionDidFinish: (id) whatever
@@ -156,16 +174,25 @@
 
 - (void) dealloc
 {
+	//IMPORTANT: if the app crashes in NSTableView drawRect or something
+	//you have forgotten to connect the table view in IB to this class' outlet!
+	//connect the table view to the tableView outlet!
+	
+	[self destroySidebarView];
+	[self destroyDetailView];
+	
 	NSLog(@"MainWindowController dealloc!");
-
+//	NSLog(@"dealloc du fotze: %i", [tableView retainCount]);
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
 	[center removeObserver: self];
 	
+	//important so the table view does not poll our dead body
+	//the table view will be released shortly after us
 	[tableView setDataSource: nil];
 	[tableView setDelegate: nil];
-	[tableView release];
+	[self setTableView: nil];
 	
-	NSLog(@"dealloc du fotze: %i", [[self window] retainCount]);
+
 	[super dealloc];
 }
 
@@ -174,17 +201,21 @@
 // Datasource
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView
 {
+//	NSLog(@"num: %i", [[self bookmarks] count]);
 	return [[self bookmarks] count];
 }
 
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex
 {
+	if ([[self bookmarks] count] == 0)
+		return nil;
+	
 	if (rowIndex >= [[self bookmarks] count] || rowIndex < 0)
-		return;
+		return nil;
 
 	FXBookmark *bookmark = [[self bookmarks] objectAtIndex: rowIndex];
-	
+	//NSLog(@"bookmark: %@", bookmark);
 	
 	if ([[aTableColumn identifier] isEqualToString: @"visited"])
 		return [bookmark valueForKey: [aTableColumn identifier]];	
@@ -217,14 +248,69 @@
 	return nil;
 }
 
+
+#pragma mark -
+#pragma mark sidebar view
+- (void) createSidebarView
+{
+	sidebarViewController = [[SidebarViewController alloc] initWithNibName: @"SidebarView" bundle: nil];
+
+	NSRect frame = [[sidebarViewController view] frame];
+	frame.size.width = [sidebarView frame].size.width;
+	frame.size.height = [sidebarView frame].size.height;
+	
+	[[sidebarViewController view] setFrame: frame];
+	[sidebarView addSubview: [sidebarViewController view]];
+}
+
+- (void) destroySidebarView
+{
+	[[sidebarViewController view] removeFromSuperview];
+	[sidebarViewController release];
+	sidebarViewController = nil;
+}
+
+#pragma mark -
+#pragma mark detail view
+- (void) destroyDetailView
+{
+	[[detailViewController view] removeFromSuperview];
+	[detailViewController release];
+	detailViewController = nil;
+}
+
+- (void) createDetailViewWithBookmark: (FXBookmark *) bookmark
+{
+	if (!bookmark)
+		return;
+	
+	detailViewController = [[BookmarkDetailViewController alloc] initWithNibName: @"DetailView" bundle: nil];
+	[detailViewController setRepresentedObject: bookmark];
+	
+	NSRect frame = [[detailViewController view] frame];
+	frame.size.width = [detailView frame].size.width;
+	frame.size.height = [detailView frame].size.height;
+	
+	[[detailViewController view] setFrame: frame];
+	[detailView addSubview: [detailViewController view]];
+}
+
 - (void)tableViewSelectionDidChange:(NSNotification *)aNotification
 {
+//	NSLog(@"selection did change!");
 	//	[[parentObject session] setCurrentSelectedIndex: [tableView selectedRow]];
 //	[[parentObject session] setCurrentlySelectedEntry: [tableView selectedRow]];
-//	FXBookmark *bookmark = [[self bookmarks] objectAtIndex: [tableView selectedRow]];
+	[self destroyDetailView];
+	
+	if ([tableView selectedRow] < 0)
+		return;
+	
+	FXBookmark *bookmark = [[self bookmarks] objectAtIndex: [tableView selectedRow]];
 	
 //	NSLog(@"bookmark: %@/%@/%@",[bookmark URL],[bookmark siteTitle], [bookmark note]);
+	
 
+	[self createDetailViewWithBookmark: bookmark];
 }
 
 

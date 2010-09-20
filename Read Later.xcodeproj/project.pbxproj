@@ -16,6 +16,10 @@
 		0323AFF512312F26007754F1 /* Advanced.png in Resources */ = {isa = PBXBuildFile; fileRef = 0323AFF212312F26007754F1 /* Advanced.png */; };
 		0323AFF612312F26007754F1 /* General.png in Resources */ = {isa = PBXBuildFile; fileRef = 0323AFF312312F26007754F1 /* General.png */; };
 		0323AFF712312F26007754F1 /* Updates.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 0323AFF412312F26007754F1 /* Updates.tiff */; };
+		033485941246DB1F007A1B77 /* SidebarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033485931246DB1F007A1B77 /* SidebarView.xib */; };
+		033485971246DB2D007A1B77 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033485961246DB2D007A1B77 /* SidebarViewController.m */; };
+		035A3A281246C81F00DCA2F2 /* BookmarkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035A3A271246C81F00DCA2F2 /* BookmarkDetailViewController.m */; };
+		035A3A2A1246C83B00DCA2F2 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 035A3A291246C83B00DCA2F2 /* DetailView.xib */; };
 		035C1174123542A000A531DF /* Read_Later_DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 035C1173123542A000A531DF /* Read_Later_DataModel.xcdatamodeld */; };
 		035C11C91235494700A531DF /* v1_to_v2.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = 035C11C81235494700A531DF /* v1_to_v2.xcmappingmodel */; };
 		036F3A4A122E888600F645C1 /* SyncSchema.syncschema in Resources */ = {isa = PBXBuildFile; fileRef = 036F3A35122E883300F645C1 /* SyncSchema.syncschema */; };
@@ -90,6 +94,12 @@
 		0323AFF212312F26007754F1 /* Advanced.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Advanced.png; sourceTree = "<group>"; };
 		0323AFF312312F26007754F1 /* General.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = General.png; sourceTree = "<group>"; };
 		0323AFF412312F26007754F1 /* Updates.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; path = Updates.tiff; sourceTree = "<group>"; };
+		033485931246DB1F007A1B77 /* SidebarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SidebarView.xib; sourceTree = "<group>"; };
+		033485951246DB2D007A1B77 /* SidebarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SidebarViewController.h; sourceTree = "<group>"; };
+		033485961246DB2D007A1B77 /* SidebarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SidebarViewController.m; sourceTree = "<group>"; };
+		035A3A261246C81F00DCA2F2 /* BookmarkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkDetailViewController.h; sourceTree = "<group>"; };
+		035A3A271246C81F00DCA2F2 /* BookmarkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkDetailViewController.m; sourceTree = "<group>"; };
+		035A3A291246C83B00DCA2F2 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
 		035C1175123542A000A531DF /* v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = v2.xcdatamodel; sourceTree = "<group>"; };
 		035C11C81235494700A531DF /* v1_to_v2.xcmappingmodel */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = wrapper.xcmappingmodel; path = v1_to_v2.xcmappingmodel; sourceTree = "<group>"; };
 		036F3A30122E883300F645C1 /* SyncSchema.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SyncSchema.xcodeproj; path = SyncSchema/SyncSchema.xcodeproj; sourceTree = "<group>"; };
@@ -169,6 +179,8 @@
 		0323AFA712312B89007754F1 /* Main Window */ = {
 			isa = PBXGroup;
 			children = (
+				033485911246DB10007A1B77 /* Sidebar View */,
+				035A3A251246C7E800DCA2F2 /* Detail View */,
 				0385001C122C340300B7A5DF /* MainWindow.xib */,
 				03850019122C33E500B7A5DF /* MainWindowController.h */,
 				0385001A122C33E500B7A5DF /* MainWindowController.m */,
@@ -200,6 +212,26 @@
 				77C8280C06725ACE000B614F /* Read_Later_AppDelegate.m */,
 			);
 			name = "App Delegate";
+			sourceTree = "<group>";
+		};
+		033485911246DB10007A1B77 /* Sidebar View */ = {
+			isa = PBXGroup;
+			children = (
+				033485931246DB1F007A1B77 /* SidebarView.xib */,
+				033485951246DB2D007A1B77 /* SidebarViewController.h */,
+				033485961246DB2D007A1B77 /* SidebarViewController.m */,
+			);
+			name = "Sidebar View";
+			sourceTree = "<group>";
+		};
+		035A3A251246C7E800DCA2F2 /* Detail View */ = {
+			isa = PBXGroup;
+			children = (
+				035A3A261246C81F00DCA2F2 /* BookmarkDetailViewController.h */,
+				035A3A271246C81F00DCA2F2 /* BookmarkDetailViewController.m */,
+				035A3A291246C83B00DCA2F2 /* DetailView.xib */,
+			);
+			name = "Detail View";
 			sourceTree = "<group>";
 		};
 		036F3A31122E883300F645C1 /* Products */ = {
@@ -406,6 +438,8 @@
 				038DCD991235121800CE2B2E /* dsa_pub.pem in Resources */,
 				038DCE261235243000CE2B2E /* Registration.png in Resources */,
 				03B681EC1237C90800D55F57 /* FEATURES in Resources */,
+				035A3A2A1246C83B00DCA2F2 /* DetailView.xib in Resources */,
+				033485941246DB1F007A1B77 /* SidebarView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -434,6 +468,8 @@
 				03C16A811235736E00140152 /* FXFetchSiteTitleOperation.m in Sources */,
 				03C16A841235745C00140152 /* NSString+Slice.m in Sources */,
 				0315CF8412365AA100699260 /* NSString+URLEncoding.m in Sources */,
+				035A3A281246C81F00DCA2F2 /* BookmarkDetailViewController.m in Sources */,
+				033485971246DB2D007A1B77 /* SidebarViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
