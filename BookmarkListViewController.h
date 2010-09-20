@@ -19,5 +19,6 @@
 @property (retain) NSTableView *tableView;
 
 - (NSArray *) bookmarks;
+- (void) markNextBookmark;
 
 @end

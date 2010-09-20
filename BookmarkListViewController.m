@@ -24,6 +24,13 @@
 	[tableView setAllowsEmptySelection: NO];
 	
 	[self markNextBookmark];
+	
+	
+	//[[[NSApplication sharedApplication] keyWindow] setInitialFirstResponder: tableView];	
+	
+	[center postNotificationName: @"FXMakeViewFirstResponder" object: tableView];
+	
+	//[[NSApp window] makeFirstResponder: tableView];
 	//[[NSNotificationCenter defaultCenter] postNotificationName:@"FXBookmarkSelectionDidChange" object: bookmark];
 }
 

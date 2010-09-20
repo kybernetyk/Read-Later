@@ -28,14 +28,15 @@
 	NSLog(@"window will load ...");
 	
 	NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-	[center addObserver: self selector:@selector(changeDetailView:) name: @"FXBookmarkSelectionDidChange" object: nil];
+	[center addObserver: self selector:@selector(makeViewFirstResponder:) name: @"FXMakeViewFirstResponder" object: nil];
 
 	
 	[self updateFrameAutosave];
 	[self createSidebarView];
-	[self createListView];
+	[self createBookmarksView];
 
-	[[self window] makeFirstResponder: [listViewController tableView]];
+	
+//	[[self window] makeFirstResponder: [listViewController tableView]];
 	
 	
 /*	if ([tableView selectedRow] >= 0)
@@ -50,12 +51,13 @@
 
 }
 
-- (void) changeDetailView: (NSNotification *) notification
+- (void) makeViewFirstResponder: (NSNotification *) notification
 {
-	[self destroyDetailView];
+	NSView *view = [notification object];
+	if (!view)
+		return;
 	
-	FXBookmark *bm = [notification object];
-	[self createDetailViewWithBookmark: bm];
+	[[self window] makeFirstResponder: view];
 }
 
 - (void) dealloc
@@ -64,8 +66,7 @@
 	[center removeObserver: self];
 	
 	[self destroySidebarView];
-	[self destroyListView];
-	[self destroyDetailView];
+	[self destroyBookmarksView];
 	
 	NSLog(@"MainWindowController dealloc!");
 //	NSLog(@"dealloc du fotze: %i", [tableView retainCount]);
@@ -76,28 +77,6 @@
 }
 
 
-
-#pragma mark -
-#pragma mark list view
-- (void) createListView
-{
-	//sidebarViewController = [[SidebarViewController alloc] initWithNibName: @"SidebarView" bundle: nil];
-	listViewController = [[BookmarkListViewController alloc] initWithNibName: @"BookmarkListView" bundle: nil];
-	
-	NSRect frame = [[listViewController view] frame];
-	frame.size.width = [listView frame].size.width;
-	frame.size.height = [listView frame].size.height;
-	
-	[[listViewController view] setFrame: frame];
-	[listView addSubview: [listViewController view]];
-}
-
-- (void) destroyListView
-{
-	[[listViewController view] removeFromSuperview];
-	[listViewController release];
-	listViewController = nil;
-}
 
 #pragma mark -
 #pragma mark sidebar view
@@ -121,29 +100,24 @@
 }
 
 #pragma mark -
-#pragma mark detail view
-- (void) destroyDetailView
+#pragma mark bookmarks view
+- (void) createBookmarksView
 {
-	[[detailViewController view] removeFromSuperview];
-	[detailViewController release];
-	detailViewController = nil;
+	bookmarksViewController = [[BookmarksViewController alloc] initWithNibName: @"BookmarksView" bundle: nil];
+	
+	NSRect frame = [[bookmarksViewController view] frame];
+	frame.size.width = [bookmarksView frame].size.width;
+	frame.size.height = [bookmarksView frame].size.height;
+	
+	[[bookmarksViewController view] setFrame: frame];
+	[bookmarksView addSubview: [bookmarksViewController view]];
 }
 
-- (void) createDetailViewWithBookmark: (FXBookmark *) bookmark
+- (void) destroyBookmarksView
 {
-	if (!bookmark)
-		return;
-	
-	detailViewController = [[BookmarkDetailViewController alloc] initWithNibName: @"DetailView" bundle: nil];
-	[detailViewController setRepresentedObject: bookmark];
-	
-	NSRect frame = [[detailViewController view] frame];
-	frame.size.width = [detailView frame].size.width;
-	frame.size.height = [detailView frame].size.height;
-	
-	[[detailViewController view] setFrame: frame];
-	[detailView addSubview: [detailViewController view]];
+	[[bookmarksViewController view] removeFromSuperview];
+	[bookmarksViewController release];
+	bookmarksViewController = nil;
 }
-
 
 @end

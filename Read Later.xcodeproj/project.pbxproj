@@ -20,6 +20,8 @@
 		033485971246DB2D007A1B77 /* SidebarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033485961246DB2D007A1B77 /* SidebarViewController.m */; };
 		0334862E124776DB007A1B77 /* BookmarkListView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0334862D124776DB007A1B77 /* BookmarkListView.xib */; };
 		03348631124776F3007A1B77 /* BookmarkListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03348630124776F3007A1B77 /* BookmarkListViewController.m */; };
+		033486E7124783B8007A1B77 /* BookmarksViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 033486E6124783B8007A1B77 /* BookmarksViewController.m */; };
+		033486E9124783CE007A1B77 /* BookmarksView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 033486E8124783CE007A1B77 /* BookmarksView.xib */; };
 		035A3A281246C81F00DCA2F2 /* BookmarkDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 035A3A271246C81F00DCA2F2 /* BookmarkDetailViewController.m */; };
 		035A3A2A1246C83B00DCA2F2 /* DetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 035A3A291246C83B00DCA2F2 /* DetailView.xib */; };
 		035C1174123542A000A531DF /* Read_Later_DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 035C1173123542A000A531DF /* Read_Later_DataModel.xcdatamodeld */; };
@@ -102,6 +104,9 @@
 		0334862D124776DB007A1B77 /* BookmarkListView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarkListView.xib; sourceTree = "<group>"; };
 		0334862F124776F3007A1B77 /* BookmarkListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkListViewController.h; sourceTree = "<group>"; };
 		03348630124776F3007A1B77 /* BookmarkListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkListViewController.m; sourceTree = "<group>"; };
+		033486E5124783B8007A1B77 /* BookmarksViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarksViewController.h; sourceTree = "<group>"; };
+		033486E6124783B8007A1B77 /* BookmarksViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarksViewController.m; sourceTree = "<group>"; };
+		033486E8124783CE007A1B77 /* BookmarksView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BookmarksView.xib; sourceTree = "<group>"; };
 		035A3A261246C81F00DCA2F2 /* BookmarkDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BookmarkDetailViewController.h; sourceTree = "<group>"; };
 		035A3A271246C81F00DCA2F2 /* BookmarkDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BookmarkDetailViewController.m; sourceTree = "<group>"; };
 		035A3A291246C83B00DCA2F2 /* DetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailView.xib; sourceTree = "<group>"; };
@@ -184,9 +189,8 @@
 		0323AFA712312B89007754F1 /* Main Window */ = {
 			isa = PBXGroup;
 			children = (
-				0334862C124776B9007A1B77 /* Bookmark List view */,
 				033485911246DB10007A1B77 /* Sidebar View */,
-				035A3A251246C7E800DCA2F2 /* Detail View */,
+				033486E41247839C007A1B77 /* Bookmarks View */,
 				0385001C122C340300B7A5DF /* MainWindow.xib */,
 				03850019122C33E500B7A5DF /* MainWindowController.h */,
 				0385001A122C33E500B7A5DF /* MainWindowController.m */,
@@ -238,6 +242,18 @@
 				03348630124776F3007A1B77 /* BookmarkListViewController.m */,
 			);
 			name = "Bookmark List view";
+			sourceTree = "<group>";
+		};
+		033486E41247839C007A1B77 /* Bookmarks View */ = {
+			isa = PBXGroup;
+			children = (
+				0334862C124776B9007A1B77 /* Bookmark List view */,
+				035A3A251246C7E800DCA2F2 /* Detail View */,
+				033486E8124783CE007A1B77 /* BookmarksView.xib */,
+				033486E5124783B8007A1B77 /* BookmarksViewController.h */,
+				033486E6124783B8007A1B77 /* BookmarksViewController.m */,
+			);
+			name = "Bookmarks View";
 			sourceTree = "<group>";
 		};
 		035A3A251246C7E800DCA2F2 /* Detail View */ = {
@@ -457,6 +473,7 @@
 				035A3A2A1246C83B00DCA2F2 /* DetailView.xib in Resources */,
 				033485941246DB1F007A1B77 /* SidebarView.xib in Resources */,
 				0334862E124776DB007A1B77 /* BookmarkListView.xib in Resources */,
+				033486E9124783CE007A1B77 /* BookmarksView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +505,7 @@
 				035A3A281246C81F00DCA2F2 /* BookmarkDetailViewController.m in Sources */,
 				033485971246DB2D007A1B77 /* SidebarViewController.m in Sources */,
 				03348631124776F3007A1B77 /* BookmarkListViewController.m in Sources */,
+				033486E7124783B8007A1B77 /* BookmarksViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
