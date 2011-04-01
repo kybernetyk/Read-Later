@@ -15,8 +15,8 @@
 {
 	[self addView: generalPrefsView label: @"General"];
 	[self addView: advancedPrefsView label: @"Advanced"];
-	[self addView: updatesPrefsView label: @"Updates"];
-	[self addView: registrationPrefsView label: @"Registration"];
+	//[self addView: updatesPrefsView label: @"Updates"];
+	//[self addView: registrationPrefsView label: @"Registration"];
 	
 	[self updateWindowWithRegistrationInfo];
 }

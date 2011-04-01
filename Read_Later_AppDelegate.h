@@ -26,6 +26,7 @@
 - (void) hideMainWindow;
 
 - (IBAction) openPreferencesWindow: (id) sender;
+- (IBAction) showHelp: (id) sender;
 
 - (void) registerUserDefaults;
 - (void) resetSavedWindowFrame;

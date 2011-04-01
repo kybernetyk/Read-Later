@@ -29,7 +29,7 @@
 	//[[[NSApplication sharedApplication] keyWindow] setInitialFirstResponder: tableView];	
 	
 	[center postNotificationName: @"FXMakeViewFirstResponder" object: tableView];
-	
+	[tableView scrollRowToVisible: [tableView selectedRow]];
 	//[[NSApp window] makeFirstResponder: tableView];
 	//[[NSNotificationCenter defaultCenter] postNotificationName:@"FXBookmarkSelectionDidChange" object: bookmark];
 }

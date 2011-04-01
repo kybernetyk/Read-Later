@@ -366,6 +366,12 @@
 	
     [super dealloc];
 }
+
+- (void) showHelp: (id) sender
+{
+	NSURL *url = [NSURL URLWithString: @"http://www.fluxforge.com/read-later/help.html"];
+	[[NSWorkspace sharedWorkspace] openURL: url];
+}
 @end
 
 #pragma mark -
